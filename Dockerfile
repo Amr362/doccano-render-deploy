@@ -64,7 +64,8 @@ RUN pip install -U --no-cache-dir pip==22.2.2 && \
     django-extensions==3.2.0 \
     django-debug-toolbar==3.2.4 \
     django-allauth==0.51.0 \
-    social-auth-app-django==5.0.0
+    social-auth-app-django==5.0.0 \
+    furl==2.1.3
 
 # Runtime stage
 FROM python:${PYTHON_VERSION} AS runtime
