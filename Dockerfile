@@ -59,7 +59,12 @@ RUN pip install -U --no-cache-dir pip==22.2.2 && \
     pyexcel-xlsx==0.6.0 \
     seqeval==1.2.2 \
     pandas==1.4.3 \
-    numpy==1.21.6
+    numpy==1.21.6 \
+    environs==9.5.0 \
+    django-extensions==3.2.0 \
+    django-debug-toolbar==3.2.4 \
+    django-allauth==0.51.0 \
+    social-auth-app-django==5.0.0
 
 # Runtime stage
 FROM python:${PYTHON_VERSION} AS runtime
