@@ -84,8 +84,7 @@ RUN mkdir /data \
  && chown doccano:doccano /data
 
 COPY --from=backend-builder /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
-COPY --from=backend-builder /usr/local/bin/celery /usr/local/bin/celery
-COPY --from=backend-builder /usr/local/bin/gunicorn /usr/local/bin/gunicorn
+COPY --from=backend-builder /usr/local/bin/ /usr/local/bin/
 
 COPY --chown=doccano:doccano . /doccano
 WORKDIR /doccano/backend
