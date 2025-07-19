@@ -1,4 +1,4 @@
-ARG PYTHON_VERSION="3.8.13-slim-bullseye"
+ARG PYTHON_VERSION="3.11-slim-bullseye"
 ARG NODE_VERSION="18.20-bullseye-slim"
 
 # Frontend builder stage
@@ -18,7 +18,7 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 # Backend builder stage
-FROM python:3.8.13-slim-bullseye AS backend-builder
+FROM python:${PYTHON_VERSION} AS backend-builder
 
 # Install system dependencies for building Python packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -83,7 +83,7 @@ RUN useradd -ms /bin/sh doccano
 RUN mkdir /data \
  && chown doccano:doccano /data
 
-COPY --from=backend-builder /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+COPY --from=backend-builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY --from=backend-builder /usr/local/bin/ /usr/local/bin/
 
 COPY --chown=doccano:doccano . /doccano
